@@ -6,6 +6,8 @@ import Contact from "./Pages/Contact/Contact";
 
 import "./index.css"; // Make sure this import exists
 
+
+
 const AppRoutes = () => {
   return useRoutes([
     { path: "/", element: <Home /> },

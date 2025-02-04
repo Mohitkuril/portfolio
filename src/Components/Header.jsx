@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <div className="flex items-center justify-center w-full fixed top-0 left-0 z-50">
-      <div className="w-full md:w-[90vw] h-[10vh] flex items-center justify-between backdrop-blur-[40px] bg-transparent  md:mt-[2vh] rounded-[7vw] md:rounded-[10vw] px-[4vw] md:px-[1.5vw] overflow-hidden  md:border md:border-[#e5e7eb]">
+      <div className="w-full md:w-[90vw] h-[10vh] flex items-center justify-between backdrop-blur-[40px] bg-transparent  md:mt-[2vh] rounded-[7vw] md:rounded-[10vw] px-[4vw] md:px-[1.5vw] overflow-hidden  md:border md:border-[#e5e7eb] ">
         {/* Logo */}
         <img src={mklogo} alt="logo" className="w-[10vw] h-[5vh] md:w-[5vw] md:h-[5vh]" />
 
