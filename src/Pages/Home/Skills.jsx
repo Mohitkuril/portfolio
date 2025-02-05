@@ -1,57 +1,74 @@
 import React from "react";
 import Icons from "../../Components/Icons";
+import htmlIcon from "../../Components/Images/html.svg";
+import cssIcon from "../../Components/Images/css.svg"
+import jsIcon from "../../Components/Images/javascript.svg"
+import tailwindIcon from "../../Components/Images/tailwind-css.svg"
+import gitIcon from "../../Components/Images/git.svg"
 
 export default function Skills() {
   const skills = [
     {
       name: "HTML",
-       icon:  "htmlIcon"} ,
+      img: htmlIcon,
+    },
     {
       name: "CSS",
-       icon:  "cssIcon"},
+      img: cssIcon,
+    },
     {
       name: "JavaScript",
-       icon:  "jsIcon"},
+      img: jsIcon,
+    },
 
     {
       name: "Tailwind",
-       icon:  "tailwindIcon"}   ,
+      img: "tailwindIcon",
+    },
     {
       name: "Git",
-       icon:  "text"},
+      img: "gitIcon",
+    },
     {
       name: "GitHub",
-       icon:  "text"}  ,
+      img: "githubIcon",
+    },
 
     {
       name: "Bootstrap",
-       icon:  "text"
+      img: "bootstrapIcon",
     },
     {
       name: "React",
-       icon:  "text"},
+      img: "reactIcon",
+    },
     {
       name: "Npm",
-       icon:  "text"},
+      img: "npmIcon",
+    },
   ];
-
 
   const learningSkills = [
     {
       name: "TypeScript",
-       icon:  "text"}  ,
+      img: "text",
+    },
     {
       name: "Next.js",
-       icon:  "text"}  ,
+      img: "text",
+    },
     {
       name: "Node.js",
-       icon:  "text"}  ,
+      img: "text",
+    },
     {
       name: "MongoDB",
-       icon:  "text"}  ,
+      img: "text",
+    },
     {
       name: "MySQL",
-       icon:  "text"}  ,
+      img: "text",
+    },
   ];
 
   return (
@@ -62,8 +79,10 @@ export default function Skills() {
         {skills.map((skill) => (
           <div key={skill.name}>
             <h2>{skill.name}</h2>
-            <p><Icons name={skill.icon} /></p>
-            </div>
+            <p className="border border-[#e5e7eb] ">
+              <img src={skill.img} />
+            </p>
+          </div>
         ))}
       </div>
     </div>
