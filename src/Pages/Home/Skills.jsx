@@ -1,89 +1,79 @@
-import React from "react";
-import Icons from "../../Components/Icons";
+import React, { useState } from "react";
 import htmlIcon from "../../Components/Images/html.svg";
-import cssIcon from "../../Components/Images/css.svg"
-import jsIcon from "../../Components/Images/javascript.svg"
-import tailwindIcon from "../../Components/Images/tailwind-css.svg"
-import gitIcon from "../../Components/Images/git.svg"
+import cssIcon from "../../Components/Images/css.svg";
+import jsIcon from "../../Components/Images/javascript.svg";
+import tailwindIcon from "../../Components/Images/tailwind-css.svg";
+import gitIcon from "../../Components/Images/git.svg";
+import githubIcon from "../../Components/Images/github.svg";
+import bootstrapIcon from "../../Components/Images/bootstrap.svg";
+import reactIcon from "../../Components/Images/reactjs.svg";
+import npmIcon from "../../Components/Images/npm.svg";
 
 export default function Skills() {
+  const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
+
   const skills = [
-    {
-      name: "HTML",
-      img: htmlIcon,
-    },
-    {
-      name: "CSS",
-      img: cssIcon,
-    },
-    {
-      name: "JavaScript",
-      img: jsIcon,
-    },
-
-    {
-      name: "Tailwind",
-      img: "tailwindIcon",
-    },
-    {
-      name: "Git",
-      img: "gitIcon",
-    },
-    {
-      name: "GitHub",
-      img: "githubIcon",
-    },
-
-    {
-      name: "Bootstrap",
-      img: "bootstrapIcon",
-    },
-    {
-      name: "React",
-      img: "reactIcon",
-    },
-    {
-      name: "Npm",
-      img: "npmIcon",
-    },
+    { name: "HTML", img: htmlIcon },
+    { name: "CSS", img: cssIcon },
+    { name: "JavaScript", img: jsIcon },
+    { name: "Tailwind", img: tailwindIcon },
+    { name: "Git", img: gitIcon },
+    { name: "GitHub", img: githubIcon },
+    { name: "Bootstrap", img: bootstrapIcon },
+    { name: "React", img: reactIcon },
+    { name: "Npm", img: npmIcon },
   ];
 
-  const learningSkills = [
-    {
-      name: "TypeScript",
-      img: "text",
-    },
-    {
-      name: "Next.js",
-      img: "text",
-    },
-    {
-      name: "Node.js",
-      img: "text",
-    },
-    {
-      name: "MongoDB",
-      img: "text",
-    },
-    {
-      name: "MySQL",
-      img: "text",
-    },
-  ];
+  // Update spotlight position on mouse move within the container.
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setSpotlight({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
 
   return (
-    <div className=" min-h-screen text-white overflow-x-hidden max-w-full pt-[15vh]">
-      <div className="flex flex-col items-center justify-center">
-        <h1>Skills</h1>
-
-        {skills.map((skill) => (
-          <div key={skill.name}>
-            <h2>{skill.name}</h2>
-            <p className="border border-[#e5e7eb] ">
-              <img src={skill.img} />
-            </p>
-          </div>
-        ))}
+    <div className="min-h-screen text-white overflow-x-hidden max-w-full pt-[15vh]">
+      <div className="flex flex-col items-center justify-center gap-[4vh] md:gap-[.5vh]">
+        <h1 className="text-[clamp(3rem,4vw,10rem)] font-[650]">Skills</h1>
+        {/* Add relative to position the spotlight */}
+        <div
+          className="flex flex-wrap items-center justify-center gap-[6vw] md:gap-[4vw] w-[95%] relative"
+          onMouseMove={handleMouseMove}
+        >
+          {/* Spotlight effect element */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: spotlight.y,
+              left: spotlight.x,
+              width: 200,
+              height: 200,
+              background:
+                "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 80%)",
+              borderRadius: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+          {skills.map((skill) => (
+            <div
+              key={skill.name}
+              className="w-[25vw] md:w-[15vw] h-[18vh]  md:h-[30vh] border border-[#e5e7eb] flex flex-col items-center justify-center gap-[1vh] backdrop-blur-[40px] bg-transparent rounded-[1.5vw] md:rounded-[.7vw] py-[1.5vh] px-[2vw] transition-transform hover:scale-105 "
+            >
+              <p className="flex items-center justify-center overflow-hidden">
+                <img
+                  className="w-[15vw] h-[15vw] md:w-[6vw] md:h-[6vw] object-fill"
+                  src={skill.img}
+                  alt={skill.name}
+                />
+              </p>
+              <h2 className="text-sm md:text-[clamp(1rem,1.2vw,5rem)] font-[650]">
+                {skill.name}
+              </h2>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
