@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react"; // Icons for the hamburger menu
 import mklogo from "../Components/Images/mklogo1preview.webp";
@@ -8,6 +8,7 @@ export default function Header() {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const navItems = [
     { name: "Home", link: "/" },
@@ -16,11 +17,28 @@ export default function Header() {
     { name: "Contact", link: "/contact" },
   ];
 
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="md:pt-[2vh] flex items-center justify-center w-full fixed top-0 left-0 z-50">
+        <div className="w-full md:w-[90vw] h-[10vh] animate-pulse bg-gray-700  rounded-[7vw] md:rounded-[10vw]"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex items-center justify-center w-full fixed top-0 left-0 z-50">
       <div className="w-full md:w-[90vw] h-[10vh] flex items-center justify-between backdrop-blur-[40px] bg-transparent  md:mt-[2vh] rounded-[7vw] md:rounded-[10vw] px-[4vw] md:px-[1.5vw] overflow-hidden  md:border md:border-[#e5e7eb] ">
         {/* Logo */}
-        <img src={mklogo} alt="logo" className="w-[10vw] h-[5vh] md:w-[5vw] md:h-[5vh]" />
+        <img
+          src={mklogo}
+          alt="logo"
+          className="w-[10vw] h-[5vh] md:w-[5vw] md:h-[5vh]"
+        />
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-[5vw]">

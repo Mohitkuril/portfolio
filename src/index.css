@@ -8,6 +8,23 @@ body {
   width: 100%;
 }
 
+html,
+body {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .clip-diagonal {
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+  }
+}

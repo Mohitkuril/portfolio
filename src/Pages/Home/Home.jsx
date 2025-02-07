@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <Skills />
       <MyProjects />
-      <Experience/>
+      <Experience />
     </div>
   );
 }
