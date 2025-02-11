@@ -112,31 +112,31 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-[12vh] min-h-screen w-screen bg-slate-100 dark:bg-[#020617] text-white">
+    <div className="pt-[12vh] min-h-screen w-screen bg-slate-100 dark:bg-[#020617] text-white ">
       <Header />
-      <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh] md:mt-[10vh]">
-        <div className="w-[90vw] bg-[#0F172A] p-10 md:p-16 flex flex-col md:flex-row gap-10">
+      <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh]  md:pb-[10vh]">
+        <div className="w-[50vw]  flex flex-col md:flex-col gap-10">
           {/* Left Contact Info Section */}
-          <div className="w-full md:w-1/2">
-            <h1 className="text-3xl md:text-4xl font-bold mb-6">
+          <div className="w-full flex flex-col gap-[2vh] leading-normal">
+            <h1 className="text-3xl md:text-[clamp(1.5rem,3vw,4.5rem)] font-bold text-blue-500">
               Get in Touch
             </h1>
-            <p className="text-lg mb-6">
+            <p className="text-[clamp(1rem,1vw,3rem)] leading-normal">
               Let’s connect! I’m always open to new conversations and
-              opportunities—drop me a message!
+              opportunities — <br/>Drop me a message!
             </p>
-            <div>
+            <div className="flex flex-col gap-[2vh]">
               {info.map((item) => (
                 <div
                   key={item.name}
-                  className="flex items-center gap-3 my-3 cursor-pointer"
+                  className="flex items-center gap-[1vw]  cursor-pointer"
                 >
-                  <span className="text-blue-400 text-xl">{item.icon}</span>
+                  <span className="text-blue-400 text-[clamp(1rem,1vw,3rem)]">{item.icon}</span>
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-blue-400 transition duration-300"
+                    className="hover:text-blue-400 transition duration-300 text-[clamp(1rem,1vw,3rem)]"
                   >
                     {item.name}: {item.data}
                   </a>
@@ -146,7 +146,7 @@ export default function Contact() {
           </div>
 
           {/* Right Form Section */}
-          <div className="w-full md:w-1/2 bg-[#1E293B] p-8 rounded-lg shadow-lg">
+          <div className="w-full md:w-[70%] bg-[#1E293B] p-8 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold mb-4">Send a Message</h2>
             <form className="space-y-4" onSubmit={handleSubmit}>
               <input
@@ -180,9 +180,9 @@ export default function Contact() {
         </div>
 
         {/* Contact Image */}
-        <div className="hidden md:block">
+        <div className="hidden md:block ">
           <img
-            className="w-[40vw]"
+            className="w-[40vw] object-cover"
             src={contactImg}
             alt="Contact Illustration"
           />
