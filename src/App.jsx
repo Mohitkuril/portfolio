@@ -5,6 +5,7 @@ import Projects from "./Pages/Projects/Projects";
 import Contact from "./Pages/Contact/Contact";
 
 import "./index.css"; // Make sure this import exists
+import ProjectDetails from "./Pages/Projects/ProjectDetails";
 
 
 
@@ -14,6 +15,7 @@ const AppRoutes = () => {
     { path: "/about", element: <About /> },
     { path: "/projects", element: <Projects /> },
     { path: "/contact", element: <Contact /> },
+    {path:"/project/:id", element:<ProjectDetails/>}
   ]);
 };
 
