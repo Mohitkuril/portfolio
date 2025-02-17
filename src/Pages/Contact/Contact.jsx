@@ -229,7 +229,7 @@ export default function Contact() {
               className="text-[clamp(1rem,1vw,3rem)] leading-normal"
               data-aos="fade-right"
             >
-              Let's connect! I'm always open to new conversations and
+              Let&apos;s connect! I&apos;m always open to new conversations and
               opportunities — <br />
               Drop me a message!
             </p>
