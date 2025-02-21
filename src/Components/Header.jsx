@@ -42,7 +42,7 @@ export default function Header() {
                md:text-[clamp(2rem,3vw,5rem)] 
                lg:text-[clamp(2.5rem,2.5vw,6rem)] 
                uppercase transition-all 
-               ${location.pathname === "/" ? "drop-shadow-lg" : ""}`}
+               drop-shadow-lg`}
         >
           MK
         </h1>
