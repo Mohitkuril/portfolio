@@ -1,11 +1,9 @@
-import Header from "../../Components/Header";
 import { projectsData } from "./projectData";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
   return (
     <div className="pt-[12vh] min-h-screen w-screen bg-slate-100 dark:bg-[#020617] text-white">
-      <Header />
       <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh] pb-[5vh] md:pb-[10vh] overflow-hidden">
         <div className=" text-white overflow-x-hidden w-[90vw]">
           <div className="flex flex-col justify-start gap-[2vh]">

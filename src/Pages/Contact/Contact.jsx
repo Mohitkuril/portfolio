@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Header from "../../Components/Header";
 import usePageTitle from "../../Components/UseTitle";
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -19,13 +18,13 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({
     name: false,
     email: false,
-    message: false
+    message: false,
   });
 
   useEffect(() => {
@@ -61,7 +60,7 @@ export default function Contact() {
 
   const validateField = (name, value) => {
     let error = "";
-    
+
     switch (name) {
       case "name":
         if (!value.trim()) {
@@ -70,7 +69,7 @@ export default function Contact() {
           error = "Name should only contain letters and spaces.";
         }
         break;
-      
+
       case "email":
         if (!value.trim()) {
           error = "Email is required.";
@@ -78,77 +77,77 @@ export default function Contact() {
           error = "Invalid email format.";
         }
         break;
-      
+
       case "message":
         if (!value.trim()) {
           error = "Message cannot be empty.";
         }
         break;
-      
+
       default:
         break;
     }
-    
+
     return error;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     let newValue = value;
-    
+
     if (name === "name") {
       newValue = value.replace(/[^A-Za-z\s]/g, "");
     }
 
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: newValue
+      [name]: newValue,
     }));
 
     if (touched[name]) {
       const error = validateField(name, newValue);
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: error
+        [name]: error,
       }));
     }
   };
 
   const handleBlur = (e) => {
     const { name } = e.target;
-    setTouched(prev => ({
+    setTouched((prev) => ({
       ...prev,
-      [name]: true
+      [name]: true,
     }));
-    
+
     const error = validateField(name, formData[name]);
-    setErrors(prev => ({
+    setErrors((prev) => ({
       ...prev,
-      [name]: error
+      [name]: error,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Mark all fields as touched
     setTouched({
       name: true,
       email: true,
-      message: true
+      message: true,
     });
 
     // Validate all fields
     const newErrors = {
       name: validateField("name", formData.name),
       email: validateField("email", formData.email),
-      message: validateField("message", formData.message)
+      message: validateField("message", formData.message),
     };
 
     setErrors(newErrors);
 
     // Check if there are any errors
-    if (Object.values(newErrors).some(error => error)) {
+    if (Object.values(newErrors).some((error) => error)) {
       return;
     }
 
@@ -169,7 +168,10 @@ export default function Contact() {
     };
 
     try {
-      await axios.post("https://api.emailjs.com/api/v1.0/email/send", emailData);
+      await axios.post(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        emailData
+      );
       toast.success("Email sent successfully!", { position: "top-right" });
       setFormData({ name: "", email: "", message: "" });
       setTouched({ name: false, email: false, message: false });
@@ -190,7 +192,6 @@ export default function Contact() {
   if (isLoading) {
     return (
       <div className="pt-[12vh] min-h-screen w-screen bg-slate-100 dark:bg-[#020617] text-white">
-        <Header />
         <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh] md:mt-[10vh]">
           <div className="min-h-[90vh] w-[90vw] p-10 gap-[3vh] md:gap-0 md:p-16 flex flex-col md:flex-row animate-pulse">
             <div className="w-full md:w-1/2 space-y-4">
@@ -213,7 +214,6 @@ export default function Contact() {
 
   return (
     <div className="pt-[12vh] min-h-screen w-screen bg-slate-100 dark:bg-[#020617] text-white">
-      <Header />
       <ToastContainer />
       <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh] pb-[5vh] md:pb-[10vh] overflow-hidden">
         <div className="w-[80%] md:w-[50vw] flex flex-col md:flex-col gap-10">
@@ -264,7 +264,11 @@ export default function Contact() {
             >
               Send a Message
             </h2>
-            <form className="space-y-[1.5vh]" onSubmit={handleSubmit} noValidate>
+            <form
+              className="space-y-[1.5vh]"
+              onSubmit={handleSubmit}
+              noValidate
+            >
               <div>
                 <input
                   type="text"
@@ -274,7 +278,9 @@ export default function Contact() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={`w-full p-[2vw] md:p-[1vw] text-[clamp(1rem,1vw,3rem)] border ${
-                    touched.name && errors.name ? 'border-red-500' : 'border-gray-600'
+                    touched.name && errors.name
+                      ? "border-red-500"
+                      : "border-gray-600"
                   } rounded-md md:rounded-[.5vw] bg-[#2D3748] text-white focus:ring-2 focus:ring-blue-400 outline-none`}
                 />
                 {touched.name && errors.name && (
@@ -290,7 +296,9 @@ export default function Contact() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={`w-full  p-[2vw] md:p-[1vw] text-[clamp(1rem,1vw,3rem)] border ${
-                    touched.email && errors.email ? 'border-red-500' : 'border-gray-600'
+                    touched.email && errors.email
+                      ? "border-red-500"
+                      : "border-gray-600"
                   } rounded-md md:rounded-[.5vw] bg-[#2D3748] text-white focus:ring-2 focus:ring-blue-400 outline-none`}
                 />
                 {touched.email && errors.email && (
@@ -305,7 +313,9 @@ export default function Contact() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   className={`w-full  p-[2vw] md:p-[1vw] text-[clamp(1rem,1vw,3rem)] h-[20vh] border ${
-                    touched.message && errors.message ? 'border-red-500' : 'border-gray-600'
+                    touched.message && errors.message
+                      ? "border-red-500"
+                      : "border-gray-600"
                   } rounded-md md:rounded-[.5vw] bg-[#2D3748] text-white focus:ring-2 focus:ring-blue-400 outline-none resize-none`}
                 />
                 {touched.message && errors.message && (

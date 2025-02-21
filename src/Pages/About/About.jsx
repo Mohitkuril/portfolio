@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Header from "../../Components/Header";
 import usePageTitle from "../../Components/UseTitle";
 import { useNavigate } from "react-router-dom";
 import FluidCursor from "../../Components/FluidCursor";
+import profile from "../../Components/Images/profile.jpg";
 
 export default function About() {
   const [isLoading, setLoading] = useState(true);
@@ -22,7 +22,6 @@ export default function About() {
       {isLoading ? (
         // Skeleton state
         <div className="pt-[12vh] min-h-screen w-screen bg-slate-100 dark:bg-[#020617] text-white">
-          <Header />
           <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh] md:mt-[10vh]">
             <div
               className="bg-[rgb(15_23_42_/_var(--tw-bg-opacity))] 
@@ -68,7 +67,6 @@ export default function About() {
       ) : (
         // Final design state
         <div className="pt-[12vh] min-h-screen w-screen bg-slate-100 dark:bg-[#020617] text-white">
-          <Header />
           <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh] md:mt-[10vh]">
             <div
               className="bg-[rgb(15_23_42_/_var(--tw-bg-opacity))] 
@@ -117,7 +115,7 @@ export default function About() {
                               h-[40vh] md:h-[100vh]"
               >
                 <img
-                  src="https://imgs.search.brave.com/fHBaP6GW8n2RKErhzOC5nVdlEpi7Q4eXh5EtkT9Af7A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMxLmNicmltYWdl/cy5jb20vd29yZHBy/ZXNzL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIyLzEwL05hcnV0/by12cy1CbGVhY2gu/anBn"
+                  src={profile}
                   alt="mohit kuril"
                   className="w-full h-full object-cover"
                 />
