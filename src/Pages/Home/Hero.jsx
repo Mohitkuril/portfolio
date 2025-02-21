@@ -26,17 +26,15 @@ export default function Hero() {
     },
   ];
 
- 
-
   return (
     <div className="pt-[12vh] min-h-screen w-full max-w-full overflow-hidden text-white">
       <div>
         <Header />
         <div className="flex flex-col md:flex-row items-center justify-around w-[100vw] mt-[6vh] md:mt-[20vh]">
           <div className="flex flex-col gap-[1.5vh] w-[90%] md:w-1/2">
-            <div className="text-[clamp(1rem,1vw,3rem)] backdrop-blur-[40px] bg-transparent flex items-center justify-center rounded-[10vw] w-[40vw] md:w-[12vw] py-[1.5vh] px-[2vw] overflow-hidden header-border">
+            {/* <div className="text-[clamp(1rem,1vw,3rem)] backdrop-blur-[40px] bg-transparent flex items-center justify-center rounded-[10vw] w-[40vw] md:w-[12vw] py-[1.5vh] px-[2vw] overflow-hidden border-2 border-gray-400 header-border">
               Hey there!🙂
-            </div>
+            </div> */}
             <h1 className="text-[clamp(3rem,4vw,10rem)] capitalize">
               I'm Mohit kuril
             </h1>
