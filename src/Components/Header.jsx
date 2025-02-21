@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // Icons for the hamburger menu
-import mklogo from "../Components/Images/mklogo1preview.webp";
-import "./Header.css";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const location = useLocation();
@@ -18,6 +16,10 @@ export default function Header() {
   ];
 
   useEffect(() => {
+    setActiveLink(location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
@@ -25,20 +27,25 @@ export default function Header() {
   if (isLoading) {
     return (
       <div className="md:pt-[2vh] flex items-center justify-center w-full fixed top-0 left-0 z-50">
-        <div className="w-full md:w-[90vw] h-[10vh] animate-pulse bg-gray-700  rounded-[7vw] md:rounded-[10vw]"></div>
+        <div className="w-full md:w-[90vw] h-[10vh] animate-pulse bg-gray-700 rounded-[7vw] md:rounded-[10vw]"></div>
       </div>
     );
   }
 
   return (
     <div className="flex items-center justify-center w-full fixed top-0 left-0 z-50">
-      <div className="w-full md:w-[90vw] h-[10vh] flex items-center justify-between backdrop-blur-[40px] bg-transparent  md:mt-[2vh] rounded-[7vw] md:rounded-[10vw] px-[4vw] md:px-[1.5vw] overflow-hidden  md:border md:border-[#e5e7eb] ">
+      <div className="w-full md:w-[90vw] h-[10vh] flex items-center justify-between backdrop-blur-[40px] bg-transparent md:mt-[2vh] rounded-[7vw] md:rounded-[10vw] px-[4vw] md:px-[1.5vw] overflow-hidden md:border md:border-[#e5e7eb]">
         {/* Logo */}
-        <img
-          src={mklogo}
-          alt="logo"
-          className="w-[10vw] h-[5vh] md:w-[5vw] md:h-[5vh]"
-        />
+        <h1
+          className={`text-white font-extrabold tracking-wide 
+               text-[clamp(1.5rem,4vw,3.5rem)] 
+               md:text-[clamp(2rem,3vw,5rem)] 
+               lg:text-[clamp(2.5rem,2.5vw,6rem)] 
+               uppercase transition-all 
+               ${location.pathname === "/" ? "drop-shadow-lg" : ""}`}
+        >
+          MK
+        </h1>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-[5vw]">
@@ -46,11 +53,10 @@ export default function Header() {
             <Link
               key={item.name}
               to={item.link}
-              onClick={() => setActiveLink(item.link)}
               className={`relative text-[clamp(1.2rem,1vw,3.5rem)] font-bold transition duration-300 
                 ${
                   activeLink === item.link
-                    ? "text-[#e5e7eb] hover:text-slate-500 underline underline-offset-4"
+                    ? "text-[#e5e7eb] underline underline-offset-4"
                     : "text-[#e5e7eb] hover:text-slate-500"
                 }`}
             >
@@ -86,7 +92,7 @@ export default function Header() {
             }}
             className={`block text-lg py-2 font-bold transition duration-300 ${
               activeLink === item.link
-                ? "text-[#e5e7eb] underline"
+                ? "text-[#e5e7eb] underline underline-offset-4"
                 : "text-[#e5e7eb] hover:text-slate-500"
             }`}
           >
