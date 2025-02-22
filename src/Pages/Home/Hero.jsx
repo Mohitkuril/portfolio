@@ -4,6 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import Svg from "../../Components/Images/Programming-amico.svg";
 import usePageTitle from "../../Components/UseTitle";
+import resume from "../../Components/Images/Mohit Resumee.pdf";
 
 export default function Hero() {
   usePageTitle("Home Page");
@@ -23,6 +24,15 @@ export default function Hero() {
       icon: <FaXTwitter />,
     },
   ];
+
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = resume;
+    link.download = "Mohit_Kuril_Resume.pdf"; // Set the file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="pt-[12vh] min-h-screen w-full max-w-full overflow-hidden text-white">
@@ -61,7 +71,10 @@ export default function Hero() {
               ))}
             </div>
             <div className="flex items-center gap-[4vw] md:gap-[1.5vw] mt-[4vh] md:mt-[2vh]">
-              <button className="text-sm md:text-[clamp(1rem,1vw,3.5rem)] px-[4vw] py-[1.5vh] md:px-[2vw] md:py-[2vh] text-white font-bold rounded-full border-2 border-gray-400 overflow-hidden transition duration-300 hover:scale-105">
+              <button
+                onClick={handleDownloadResume}
+                className="text-sm md:text-[clamp(1rem,1vw,3.5rem)] px-[4vw] py-[1.5vh] md:px-[2vw] md:py-[2vh] text-white font-bold rounded-full border-2 border-gray-400 overflow-hidden transition duration-300 hover:scale-105"
+              >
                 Download Resume
               </button>
               <button

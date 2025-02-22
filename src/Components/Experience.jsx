@@ -1,5 +1,3 @@
-import React from "react";
-
 const Experience = () => {
   const experiences = [
     {
@@ -7,7 +5,7 @@ const Experience = () => {
       role: "Project Engineer",
       date: "Dec-21 to May-23",
       description:
-        "Front-end developer with 1.5 years of experience specializing in responsive web design and user-friendly web applications. Proficient in modern technologies like ReactJS, Redux, JavaScript, and TailwindCSS, with a proven track record of building e-commerce platforms and dynamic data management systems. Skilled in optimizing websites for desktop and mobile devices to enhance user engagement and collaborating with design tools like Figma to create visually appealing interfaces.",
+        "Front-end developer with 1.5 years of experience specializing in building responsive and user-friendly web applications using HTML, CSS, JavaScript, Bootstrap, and ReactJS. Proficient in modern technologies like ReactJS, Redux, and TailwindCSS. Experienced in developing and optimizing reusable components for web applications, ensuring seamless performance across devices. Strong problem-solving skills and attention to detail in creating visually appealing and intuitive user interfaces. ",
       imgLink: "",
     },
     {
@@ -16,29 +14,41 @@ const Experience = () => {
       date: "Jan-24 to Present",
       description: `As a seasoned front-end developer with 1.3 years of experience, I possess a strong foundation in responsive web design and user-friendly web applications. I am proficient in modern technologies including ReactJS, Redux, JavaScript, and Tailwind CSS, which enables me to build scalable and efficient web applications.
 
-I have a proven track record of building complex web applications, including scalable e-commerce platforms and dynamic data management systems. My expertise includes optimizing websites for maximum user engagement, ensuring seamless user experiences across desktop and mobile devices, and creating visually appealing interfaces that drive conversions.`,
+I have a proven track record of building complex web applications, including scalable e-commerce platforms and dynamic data management systems. My expertise includes optimizing websites for maximum user engagement, ensuring seamless user experiences across desktop and mobile devices, and creating visually appealing interfaces that drive conversions.
+
+Collaborated with
+designers using Figma to transform mockups into
+functional web pages.Utilized version control systems
+such as Git to manage code changes and collaborate with
+other developers`,
       imgLink: "",
     },
   ];
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden max-w-full pt-16">
-      <div className="flex flex-col items-center justify-center gap-8">
-        <h1 className="text-5xl md:text-6xl font-bold my-4">Experience</h1>
+    <div className="min-h-screen text-white overflow-x-hidden max-w-full pt-[15vh]">
+      <div className="flex flex-col items-center justify-center gap-[3vh]">
+        <h1 className="text-5xl md:text-[clamp(3rem,4vw,10rem)] font-bold mb-[2vh]">
+          Experience
+        </h1>
 
-        <div className="flex flex-col gap-10 w-full px-4 max-w-6xl">
+        <div className="flex flex-col gap-[5vh] w-full px-4 max-w-[85vw]">
           {experiences.map((experience) => (
             <div
               key={experience.companyName}
-              className="flex flex-col md:flex-row gap-6 min-h-[10vh] bg-gray-800/30 rounded-lg p-6"
+              className="flex flex-col md:flex-row gap-6 min-h-[10vh] bg-gray-800/30 rounded-[.5vw] p-[1vw]"
             >
               {/* Left section - Fixed */}
-              <div className="md:w-1/3 sticky top-0 self-start space-y-2">
-                <h2 className="text-2xl font-bold text-blue-400">
+              <div className="md:w-1/3 sticky top-0 self-start flex flex-col gap-[1dvh]">
+                <h2 className="text-2xl md:text-[clamp(1.3rem,2vw,5rem)] font-bold text-blue-400">
                   {experience.companyName}
                 </h2>
-                <p className="text-xl text-gray-300">{experience.role}</p>
-                <p className="text-sm text-gray-400">{experience.date}</p>
+                <p className="text-xl md:text-[clamp(1rem,1.5vw,4rem)] text-gray-300">
+                  {experience.role}
+                </p>
+                <p className="text-sm md:text-[clamp(1rem,1.2vw,3.5rem)] text-gray-400">
+                  {experience.date}
+                </p>
               </div>
 
               {/* Divider */}
@@ -50,7 +60,10 @@ I have a proven track record of building complex web applications, including sca
                 style={{ scrollbarWidth: "thin" }}
               >
                 {experience.description.split("\n\n").map((para, index) => (
-                  <p key={index} className="text-gray-300 leading-relaxed mb-4">
+                  <p
+                    key={index}
+                    className="text-gray-300 text-[clamp(1rem,1.2vw,3rem)]  leading-relaxed mb-4"
+                  >
                     {para}
                   </p>
                 ))}
