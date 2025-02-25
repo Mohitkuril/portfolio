@@ -1,3 +1,5 @@
+import Aos from "aos";
+
 const Experience = () => {
   const experiences = [
     {
@@ -26,15 +28,20 @@ other developers`,
   ];
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden max-w-full pt-[15vh]">
-      <div className="flex flex-col items-center justify-center gap-[3vh]">
-        <h1 className="text-5xl md:text-[clamp(3rem,4vw,10rem)] font-bold mb-[2vh]">
+    <div className="min-h-screen text-white overflow-hidden max-w-full pt-[15vh]">
+      <div className="flex flex-col items-center justify-center gap-[3vh] mb-[5vh]">
+        <h1
+          data-aos="fade-up"
+          className="text-5xl md:text-[clamp(3rem,4vw,10rem)] font-bold mb-[2vh]"
+        >
           Experience
         </h1>
 
         <div className="flex flex-col gap-[5vh] w-full px-4 max-w-[85vw]">
-          {experiences.map((experience) => (
+          {experiences.map((experience, index) => (
             <div
+              data-aos="fade-up"
+              data-aos-delay={index * 200}
               key={experience.companyName}
               className="flex flex-col md:flex-row gap-6 min-h-[10vh] bg-gray-800/30 rounded-[.5vw] p-[1vw]"
             >

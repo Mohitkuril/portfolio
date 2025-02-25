@@ -51,11 +51,11 @@ const Splash = () => {
   return (
     <div
       ref={elementRef}
-      className="flex justify-center items-center h-screen bg-black relative overflow-hidden"
+      className="flex justify-center w-full items-center h-screen bg-black relative overflow-hidden"
     >
       <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)] pointer-events-none glow-effect" />
       <svg
-        className="w-[500px] h-[200px] mohit-text"
+        className="w-[90vw] -ml-[8vw] md:ml-0  h-[30vh] md:w-[500px] md:h-[200px] mohit-text"
         viewBox="0 0 500 200"
         style={{ filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))" }}
       >

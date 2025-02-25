@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import htmlIcon from "../../Components/Images/html.svg";
 import cssIcon from "../../Components/Images/css.svg";
 import jsIcon from "../../Components/Images/javascript.svg";
@@ -12,6 +14,10 @@ import npmIcon from "../../Components/Images/npm.svg";
 export default function Skills() {
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
+  }, []);
+
   const skills = [
     { name: "HTML", img: htmlIcon },
     { name: "CSS", img: cssIcon },
@@ -24,7 +30,6 @@ export default function Skills() {
     { name: "Npm", img: npmIcon },
   ];
 
-  // Update spotlight position on mouse move within the container.
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setSpotlight({
@@ -34,15 +39,18 @@ export default function Skills() {
   };
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden max-w-full pt-[15vh]">
+    <div className="min-h-screen text-white overflow-hidden max-w-full pt-[15vh]">
       <div className="flex flex-col items-center justify-center gap-[4vh] md:gap-[.5vh]">
-        <h1 className="text-[clamp(3rem,4vw,10rem)] font-[650]">Skills</h1>
-        {/* Add relative to position the spotlight */}
+        <h1
+          className="text-[clamp(3rem,4vw,10rem)] font-[650]"
+          data-aos="fade-up"
+        >
+          Skills
+        </h1>
         <div
           className="flex flex-wrap items-center justify-center gap-[6vw] md:gap-[4vw] w-[95%] relative"
           onMouseMove={handleMouseMove}
         >
-          {/* Spotlight effect element */}
           <div
             className="absolute pointer-events-none"
             style={{
@@ -56,10 +64,12 @@ export default function Skills() {
               transform: "translate(-50%, -50%)",
             }}
           />
-          {skills.map((skill) => (
+          {skills.map((skill, index) => (
             <div
               key={skill.name}
-              className="w-[25vw] md:w-[15vw] h-[18vh]  md:h-[30vh] border border-[#e5e7eb] flex flex-col items-center justify-center gap-[1vh] backdrop-blur-[40px] bg-transparent rounded-[1.5vw] md:rounded-[.7vw] py-[1.5vh] px-[2vw] transition-transform hover:scale-105 "
+              className="w-[25vw] md:w-[15vw] h-[18vh] md:h-[30vh] border border-[#e5e7eb] flex flex-col items-center justify-center gap-[1vh] backdrop-blur-[40px] bg-transparent rounded-[1.5vw] md:rounded-[.7vw] py-[1.5vh] px-[2vw] transition-transform hover:scale-105"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
             >
               <p className="flex items-center justify-center overflow-hidden">
                 <img
