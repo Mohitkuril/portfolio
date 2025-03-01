@@ -13,7 +13,7 @@ const ProjectCard = ({ project }) => {
   }, []);
 
   return (
-    <div className="group relative flex flex-col items-center justify-start gap-[1vh] rounded-2xl md:rounded-[1vw]  border border-slate-800 bg-[rgb(15_23_42_/_var(--tw-bg-opacity))] w-[90%] md:w-[28vw] max-h-[45vh] md:max-h-[50vh] overflow-hidden">
+    <div className="group relative flex flex-col items-center justify-start gap-[1vh] rounded-2xl md:rounded-[1vw]  border border-slate-800  bg-[rgb(15_23_42_/_var(--tw-bg-opacity))] w-[90%] md:w-[28vw] max-h-[45vh] md:max-h-[50vh] overflow-hidden">
       {/* Image container */}
       <div className="w-full h-[50%] overflow-hidden">
         <img
@@ -26,7 +26,9 @@ const ProjectCard = ({ project }) => {
       {/* Project details */}
       <div className="relative flex flex-col items-start justify-start gap-[1vh] w-full py-[2vh] px-[3vw] md:py-[2vh] md:px-[1vw]">
         <h2 className="text-sm">#{project.langUsed.join("- ")}</h2>
-        <h2 className="text-[clamp(1rem,1.5vw,5rem)]">{project.title}</h2>
+        <h2 className="text-[clamp(1rem,1.5vw,5rem)] font-bold">
+          {project.title}
+        </h2>
         <p className="text-[clamp(.9rem,1vw,3.5rem)] line-clamp-2">
           {project.description}
         </p>
