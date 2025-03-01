@@ -7,7 +7,7 @@ export default function Projects() {
       <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh] pb-[5vh] md:pb-[10vh] overflow-hidden">
         <div className=" text-white overflow-x-hidden w-[90vw]">
           <div className="flex flex-col justify-start gap-[2vh]">
-            <h1 className="text-[clamp(2.5rem,3vw,8rem)] md:text-[clamp(3rem,4vw,10rem)] font-[650] leading-none">
+            <h1 className="text-[clamp(2.5rem,3vw,8rem)] text-[#688ef5] md:text-[clamp(3rem,4vw,10rem)] font-[650] leading-none">
               My Projects
             </h1>
             <p className="text-[clamp(1rem,1.2vw,5rem)] md:text-[clamp(1.5rem,1.5vw,5rem)]">

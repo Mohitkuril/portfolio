@@ -32,7 +32,7 @@ other developers`,
       <div className="flex flex-col items-center justify-center gap-[3vh] mb-[5vh]">
         <h1
           data-aos="fade-up"
-          className="text-5xl md:text-[clamp(3rem,4vw,10rem)] font-bold mb-[2vh]"
+          className="text-5xl md:text-[clamp(3rem,4vw,10rem)] font-bold mb-[2vh] text-[#688ef5]"
         >
           Experience
         </h1>

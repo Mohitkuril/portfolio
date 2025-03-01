@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 
 const Skills = React.lazy(() => import("./Skills"));
 const Hero = React.lazy(() => import("./Hero"));
@@ -6,6 +6,36 @@ const MyProjects = React.lazy(() => import("./MyProjects"));
 const Experience = React.lazy(() => import("../../Components/Experience"));
 
 export default function Home() {
+  // Create refs for each section
+  const heroRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+  const experienceRef = useRef(null);
+
+  // Function to scroll to a section smoothly
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  // Set up global smooth scrolling
+  useEffect(() => {
+    // Enable smooth scrolling for the entire page
+    document.documentElement.style.scrollBehavior = "smooth";
+
+    // Optional: Clean up when component unmounts
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+    };
+  }, []);
+
+  // Optional: You can expose these scroll functions to other components via context or props
+  // const scrollToHero = () => scrollToSection(heroRef);
+  // const scrollToSkills = () => scrollToSection(skillsRef);
+  // const scrollToProjects = () => scrollToSection(projectsRef);
+  // const scrollToExperience = () => scrollToSection(experienceRef);
+
   return (
     <div className="bg-gray-950 w-screen overflow-x-hidden">
       <Suspense
@@ -55,10 +85,18 @@ export default function Home() {
           </div>
         }
       >
-        <Hero />
-        <Skills />
-        <MyProjects />
-        <Experience />
+        <div ref={heroRef}>
+          <Hero />
+        </div>
+        <div ref={skillsRef}>
+          <Skills />
+        </div>
+        <div ref={projectsRef}>
+          <MyProjects />
+        </div>
+        <div ref={experienceRef}>
+          <Experience />
+        </div>
       </Suspense>
     </div>
   );

@@ -24,7 +24,7 @@ export default function About() {
   const [isLoading, setLoading] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
   const navigate = useNavigate();
-  usePageTitle("About Us");
+  // usePageTitle("About Us");
 
   useEffect(() => {
     // Simulate initial loading

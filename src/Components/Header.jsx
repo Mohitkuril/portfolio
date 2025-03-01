@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import mohitLogo from "../Components/Images/Mohit_logo.webp";
 
 export default function Header() {
   const location = useLocation();
@@ -29,16 +30,11 @@ export default function Header() {
       <div className="flex items-center justify-center w-full fixed top-0 left-0 z-50">
         <div className="w-full md:w-[90vw] h-[10vh] flex items-center justify-between backdrop-blur-[40px] bg-transparent md:mt-[2vh] rounded-[7vw] md:rounded-[10vw] px-[4vw] md:px-[1.5vw] overflow-hidden border border-slate-800">
           {/* Logo */}
-          <h1
-            className={`text-white font-extrabold tracking-wide 
-                text-[clamp(1.5rem,4vw,3.5rem)] 
-                md:text-[clamp(2rem,3vw,5rem)] 
-                lg:text-[clamp(2.5rem,2.5vw,6rem)] 
-                uppercase transition-all 
-                drop-shadow-lg`}
-          >
-            MK
-          </h1>
+          <img
+            src={mohitLogo}
+            alt="Logo"
+            className="w-[20vw] md:w-[6vw] -ml-[3vw] md:-ml-[1vw] rounded-[1vw] object-cover "
+          />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-[5vw]">
@@ -49,7 +45,7 @@ export default function Header() {
                 className={`relative text-[clamp(1.2rem,1vw,3.5rem)] font-bold transition duration-300 
                 ${
                   activeLink === item.link
-                    ? "text-[#e5e7eb] underline underline-offset-4"
+                    ? "text-[#688ef5] underline underline-offset-4 "
                     : "text-[#e5e7eb] hover:text-slate-500"
                 }`}
               >
@@ -85,7 +81,7 @@ export default function Header() {
               }}
               className={`block text-lg py-2 font-bold transition duration-300 ${
                 activeLink === item.link
-                  ? "text-[#e5e7eb] underline underline-offset-4"
+                  ? "text-[#688ef5] underline underline-offset-4"
                   : "text-[#e5e7eb] hover:text-slate-500"
               }`}
             >

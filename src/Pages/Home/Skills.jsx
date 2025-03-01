@@ -10,6 +10,7 @@ import githubIcon from "../../Components/Images/github.svg";
 import bootstrapIcon from "../../Components/Images/bootstrap.svg";
 import reactIcon from "../../Components/Images/reactjs.svg";
 import npmIcon from "../../Components/Images/npm.svg";
+import { Button } from "../../Components/MovingBorder/Moving-Border";
 
 export default function Skills() {
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
@@ -42,7 +43,7 @@ export default function Skills() {
     <div className="min-h-screen text-white overflow-hidden max-w-full pt-[15vh]">
       <div className="flex flex-col items-center justify-center gap-[4vh] md:gap-[.5vh]">
         <h1
-          className="text-[clamp(3rem,4vw,10rem)] font-[650]"
+          className="text-[clamp(3rem,4vw,10rem)] font-[650] text-[#688ef5] "
           data-aos="fade-up"
         >
           Skills
@@ -53,27 +54,34 @@ export default function Skills() {
         >
           <div
             className="absolute pointer-events-none"
-            style={{
-              top: spotlight.y,
-              left: spotlight.x,
-              width: 200,
-              height: 200,
-              background:
-                "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 80%)",
-              borderRadius: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
+            // style={{
+            //   top: spotlight.y,
+            //   left: spotlight.x,
+            //   width: 200,
+            //   height: 200,
+            //   background:
+            //     "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 80%)",
+            //   borderRadius: "50%",
+            //   transform: "translate(-50%, -50%)",
+            // }}
           />
           {skills.map((skill, index) => (
-            <div
+            <Button
+              borderRadius="1rem"
+              mobileWidth="26vw"
+              mobileHeight="18vh"
+              desktopWidth="15vw"
+              desktopHeight="30vh"
+              // className="bg-white-500 text-white font-bold hover:bg-gray-900 text-base"
+              duration={9000}
               key={skill.name}
-              className="w-[25vw] md:w-[15vw] h-[18vh] md:h-[30vh] border border-slate-800 flex flex-col items-center justify-center gap-[1vh] backdrop-blur-[40px] bg-transparent rounded-[1.5vw] md:rounded-[.7vw] py-[1.5vh] px-[2vw] transition-transform hover:scale-105"
+              className=" border border-slate-800 flex flex-col items-center justify-center gap-[1vh] backdrop-blur-[40px] bg-grey-990 rounded-[1.5vw] md:rounded-[.7vw] py-[1.5vh] px-[2vw] "
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
               <p className="flex items-center justify-center overflow-hidden">
                 <img
-                  className="w-[15vw] h-[15vw] md:w-[6vw] md:h-[6vw] object-fill"
+                  className="w-[12vw] h-[15vw] md:w-[6vw] md:h-[6vw] object-fill"
                   src={skill.img}
                   alt={skill.name}
                 />
@@ -81,7 +89,7 @@ export default function Skills() {
               <h2 className="text-sm md:text-[clamp(1rem,1.2vw,5rem)] font-[650]">
                 {skill.name}
               </h2>
-            </div>
+            </Button>
           ))}
         </div>
       </div>

@@ -71,7 +71,7 @@ const LazyImage = lazy(() => {
 
 // Main Contact component
 export default function Contact() {
-  usePageTitle("Contact Us");
+  // usePageTitle("Contact Us");
 
   useEffect(() => {
     AOS.init({ duration: 1000 });

@@ -73,7 +73,7 @@ const ProjectCard = ({ project }) => {
 
             {/* Details Button */}
             <Button
-              onClick={() => navigate(`/project/${project.id}`)}
+              onClick={() => navigate(`/projects/${project.id}`)}
               borderRadius="0.375rem"
               mobileWidth="20vw"
               mobileHeight="5vh"
