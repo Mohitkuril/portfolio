@@ -1,18 +1,25 @@
 /* eslint-disable react/prop-types */
-// src/Components/ProjectCard.jsx
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../Components/MovingBorder/Moving-Border";
+import Aos from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: false });
+  }, []);
+
   return (
-    <div className="group relative flex flex-col items-center justify-center gap-[1vh] rounded-2xl md:rounded-[1vw] border border-white bg-[rgb(15_23_42_/_var(--tw-bg-opacity))] w-[90%] md:w-[28vw] overflow-hidden">
-      {/* Image container with hover overlay */}
-      <div className="w-full">
+    <div className="group relative flex flex-col items-center justify-start gap-[1vh] rounded-2xl md:rounded-[1vw]  border border-slate-800 bg-[rgb(15_23_42_/_var(--tw-bg-opacity))] w-[90%] md:w-[28vw] max-h-[45vh] md:max-h-[50vh] overflow-hidden">
+      {/* Image container */}
+      <div className="w-full h-[50%] overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full rounded-tl-2xl rounded-tr-2xl md:rounded-tl-[1vw] md:rounded-tr-[1vw]"
+          className="w-full h-full object-fill rounded-tl-2xl rounded-tr-2xl md:rounded-tl-[1vw] md:rounded-tr-[1vw]"
         />
       </div>
 
@@ -24,32 +31,58 @@ const ProjectCard = ({ project }) => {
           {project.description}
         </p>
 
-        {/* Hover Overlay for Links */}
-        <div className="absolute inset-0 flex flex-col items-center justify-end bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="flex gap-4 py-2">
-            <a
+        {/* Hover Overlay for Buttons */}
+        <div className="absolute inset-0 flex flex-col items-center justify-end bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="flex gap-4 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+            {/* Live Button */}
+            <Button
+              as="a"
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              borderRadius="0.375rem"
+              mobileWidth="20vw"
+              mobileHeight="5vh"
+              desktopWidth="7vw"
+              desktopHeight="7vh"
+              className="bg-blue-500 text-white hover:bg-gray-900 text-base"
+              duration={3800}
             >
               Live
-            </a>
-            <a
+            </Button>
+
+            {/* GitHub Button */}
+            <Button
+              as="a"
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-900"
+              borderRadius="0.375rem"
+              mobileWidth="20vw"
+              mobileHeight="5vh"
+              desktopWidth="7vw"
+              desktopHeight="7vh"
+              className="bg-gray-800 text-white hover:bg-gray-900 text-base"
+              duration={4000}
+              // borderClassName="bg-[radial-gradient(var(--gray-600)_40%,transparent_60%)]"
             >
               GitHub
-            </a>
-            {/* View Details Button */}
-            <button
+            </Button>
+
+            {/* Details Button */}
+            <Button
               onClick={() => navigate(`/project/${project.id}`)}
-              className=" px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+              borderRadius="0.375rem"
+              mobileWidth="20vw"
+              mobileHeight="5vh"
+              desktopWidth="7vw"
+              desktopHeight="7vh"
+              className="bg-green-500 text-white hover:bg-gray-900 text-base"
+              duration={4200}
+              // borderClassName="bg-[radial-gradient(var(--green-400)_40%,transparent_60%)]"
             >
               Details
-            </button>
+            </Button>
           </div>
         </div>
       </div>

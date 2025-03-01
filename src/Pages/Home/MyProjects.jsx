@@ -15,7 +15,7 @@ export default function MyProjects() {
         <p className="text-[clamp(1rem,1.2vw,5rem)] md:text-[clamp(1.5rem,1.5vw,5rem)]">
           Here are some of my projects I have done.
         </p>
-        <div className="flex flex-wrap items-center justify-center w-[90%] gap-[6vw] md:gap-[2vw]">
+        <div className="flex flex-wrap items-center justify-center md:justify-start w-[90%] gap-[6vw] md:gap-[2vw]">
           {projectsData.slice(0, 3).map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}

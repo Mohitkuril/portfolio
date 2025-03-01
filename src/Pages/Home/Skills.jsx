@@ -67,7 +67,7 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <div
               key={skill.name}
-              className="w-[25vw] md:w-[15vw] h-[18vh] md:h-[30vh] border border-[#e5e7eb] flex flex-col items-center justify-center gap-[1vh] backdrop-blur-[40px] bg-transparent rounded-[1.5vw] md:rounded-[.7vw] py-[1.5vh] px-[2vw] transition-transform hover:scale-105"
+              className="w-[25vw] md:w-[15vw] h-[18vh] md:h-[30vh] border border-slate-800 flex flex-col items-center justify-center gap-[1vh] backdrop-blur-[40px] bg-transparent rounded-[1.5vw] md:rounded-[.7vw] py-[1.5vh] px-[2vw] transition-transform hover:scale-105"
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >

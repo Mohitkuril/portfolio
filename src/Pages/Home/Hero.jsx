@@ -4,7 +4,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import Svg from "../../Components/Images/Programming-amico.svg";
 import usePageTitle from "../../Components/UseTitle";
-import resume from "../../Components/Images/Mohit Resumee.pdf";
+import resume from "../../Components/Images/Mohit_resumee.pdf";
+import { Button } from "../../Components/MovingBorder/Moving-Border";
 
 export default function Hero() {
   usePageTitle("Home Page");
@@ -12,15 +13,14 @@ export default function Hero() {
 
   const socialLinks = [
     {
-      link: "https://github.com/mohit-kuril",
+      link: "https://github.com/Mohitkuril",
       icon: <FaGithub />,
     },
     {
-      link: "https://www.linkedin.com/in/mohit-kuril/",
+      link: "https://www.linkedin.com/in/mohit-kuril-84884926b",
       icon: <FaLinkedin />,
     },
     {
-      link: "https://www.instagram.com/mohit_kuril/",
       icon: <FaXTwitter />,
     },
   ];
@@ -71,18 +71,32 @@ export default function Hero() {
               ))}
             </div>
             <div className="flex items-center gap-[4vw] md:gap-[1.5vw] mt-[4vh] md:mt-[2vh]">
-              <button
+              <Button
                 onClick={handleDownloadResume}
-                className="text-sm md:text-[clamp(1rem,1vw,3.5rem)] px-[4vw] py-[1.5vh] md:px-[2vw] md:py-[2vh] text-white font-bold rounded-full border-2 border-gray-400 overflow-hidden transition duration-300 hover:scale-105"
+                // className="text-sm md:text-[clamp(1rem,1vw,3.5rem)] px-[4vw] py-[1.5vh] md:px-[2vw] md:py-[2vh] text-white font-bold rounded-full border-2 border-gray-400 overflow-hidden transition duration-300 hover:scale-105"
+                borderRadius="1rem"
+                mobileWidth="50vw"
+                mobileHeight="6vh"
+                desktopWidth="15vw"
+                desktopHeight="8vh"
+                className="bg-white-500 text-white font-bold hover:bg-gray-900 text-base"
+                duration={4200}
               >
                 Download Resume
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => navigate("/contact")}
-                className="text-sm md:text-[clamp(1rem,1vw,3.5rem)] px-[4vw] py-[1.5vh] md:px-[2vw] md:py-[2vh] text-white font-bold rounded-full border-2 border-gray-400 overflow-hidden transition duration-300 hover:scale-105"
+                // className="text-sm md:text-[clamp(1rem,1vw,3.5rem)] px-[4vw] py-[1.5vh] md:px-[2vw] md:py-[2vh] text-white font-bold rounded-full border-2 border-gray-400 overflow-hidden transition duration-300 hover:scale-105"
+                borderRadius="1rem"
+                mobileWidth="50vw"
+                mobileHeight="6vh"
+                desktopWidth="15vw"
+                desktopHeight="8vh"
+                className="bg-white-500 text-white font-bold hover:bg-gray-900 text-base"
+                duration={4200}
               >
                 Contact Me
-              </button>
+              </Button>
             </div>
           </div>
           <div>

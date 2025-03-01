@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { projectsData } from "./projectData";
+import { Button } from "../../Components/MovingBorder/Moving-Border";
 
 const ProjectDetails = () => {
   const { id } = useParams(); // Get the project ID from the URL
@@ -13,8 +14,20 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-100 dark:bg-[#020617] text-white p-6">
-      <div className="max-w-3xl bg-gray-900 p-6 rounded-lg shadow-lg">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-100 dark:bg-[#020617] text-white pt-[15vh]">
+      <div className="w-[90%] md:w-[80%] flex flex-col gap-[3vh] bg-gray-900 p-[5vw] md:p-[1.5vw] rounded-lg shadow-lg">
+        <Button
+          onClick={() => navigate(-1)}
+          borderRadius="0.375rem"
+          mobileWidth="40vw"
+          mobileHeight="5vh"
+          desktopWidth="12vw"
+          desktopHeight="8vh"
+          className="bg-white-500 text-white font-bold hover:bg-gray-900 text-base"
+          duration={4200}
+        >
+          Back to Projects
+        </Button>
         <img
           src={project.image}
           alt={project.title}
@@ -27,31 +40,39 @@ const ProjectDetails = () => {
 
         {/* Links */}
         <div className="mt-6 flex gap-4">
-          <a
+          <Button
+            as="a"
             href={project.liveLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            borderRadius="0.375rem"
+            mobileWidth="20vw"
+            mobileHeight="5vh"
+            desktopWidth="7vw"
+            desktopHeight="7vh"
+            className="bg-white-500 text-white font-bold hover:bg-gray-900 text-base"
+            duration={4200}
           >
             Live
-          </a>
-          <a
+          </Button>
+          <Button
+            as="a"
             href={project.githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-900"
+            borderRadius="0.375rem"
+            mobileWidth="20vw"
+            mobileHeight="5vh"
+            desktopWidth="7vw"
+            desktopHeight="7vh"
+            className="bg-white-500 text-white font-bold hover:bg-gray-900 text-base"
+            duration={4200}
           >
             GitHub
-          </a>
+          </Button>
         </div>
 
         {/* Back Button */}
-        <button
-          onClick={() => navigate(-1)}
-          className="mt-6 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-        >
-          Back to Projects
-        </button>
       </div>
     </div>
   );

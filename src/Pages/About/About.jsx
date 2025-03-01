@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import FluidCursor from "../../Components/FluidCursor";
 // Import the image but we'll use it lazily
 import profile from "../../Components/Images/profile.jpg";
+import { Button } from "../../Components/MovingBorder/Moving-Border";
 
 // Create a lazy-loaded image component
 const LazyImage = lazy(() =>
@@ -99,12 +100,12 @@ export default function About() {
             <div
               className="relative w-full md:w-1/2 bg-[#0F172A] 
                               p-10 md:p-16 
-                              flex flex-col justify-center"
+                              flex flex-col justify-center gap-[4vh]"
             >
-              <h2 className="text-3xl font-bold mb-4">
+              <h2 className="text-3xl font-bold ">
                 About <span className="text-blue-400">Me.</span>
               </h2>
-              <p>
+              <p className="text-md md:text-[clamp(1.1rem,1vw,4.5rem)] font-bold">
                 Hi, I&apos;m{" "}
                 <span className="text-blue-400 font-bold">Mohit Kuril</span>, a
                 passionate Web Application Developer from Hyderabad. Front-end
@@ -117,15 +118,18 @@ export default function About() {
                 devices to enhance user engagement and collaborating with design
                 tools like Figma to create visually appealing interfaces.
               </p>
-              <button
+              <Button
                 onClick={() => navigate("/contact")}
-                className="mt-6 px-5 py-2 md:w-[50%] border rounded-lg 
-                             border-white bg-opacity-20 
-                             hover:bg-blue-400 hover:text-white hover:border-blue-400 
-                             transition duration-300 ease-in-out font-bold"
+                borderRadius="1rem"
+                mobileWidth="50vw"
+                mobileHeight="6vh"
+                desktopWidth="15vw"
+                desktopHeight="8vh"
+                className="bg-white-500 text-white font-bold hover:bg-gray-900 text-base"
+                duration={4200}
               >
                 CONTACT ME
-              </button>
+              </Button>
             </div>
 
             {/* Right Image Section with Lazy Loading */}

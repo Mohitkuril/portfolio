@@ -27,7 +27,7 @@ export default function Header() {
       }
     >
       <div className="flex items-center justify-center w-full fixed top-0 left-0 z-50">
-        <div className="w-full md:w-[90vw] h-[10vh] flex items-center justify-between backdrop-blur-[40px] bg-transparent md:mt-[2vh] rounded-[7vw] md:rounded-[10vw] px-[4vw] md:px-[1.5vw] overflow-hidden md:border md:border-[#e5e7eb]">
+        <div className="w-full md:w-[90vw] h-[10vh] flex items-center justify-between backdrop-blur-[40px] bg-transparent md:mt-[2vh] rounded-[7vw] md:rounded-[10vw] px-[4vw] md:px-[1.5vw] overflow-hidden border border-slate-800">
           {/* Logo */}
           <h1
             className={`text-white font-extrabold tracking-wide 
