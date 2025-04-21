@@ -2,6 +2,7 @@ import { projectsData } from "./projectData";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
+   const reversedProjects = [...projectsData].reverse();
   return (
     <div className="pt-[12vh] min-h-screen w-screen bg-slate-100 dark:bg-[#020617] text-white">
       <div className="flex flex-col md:flex-row items-center w-full justify-center mt-[6vh] pb-[5vh] md:pb-[10vh] overflow-hidden">
@@ -14,7 +15,7 @@ export default function Projects() {
               Here are some of my projects I have done.
             </p>
             <div className="flex flex-wrap items-center justify-center md:justify-start w-[100%] gap-[6vw] md:gap-[2vw]">
-              {projectsData.map((project) => (
+              {reversedProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
             </div>

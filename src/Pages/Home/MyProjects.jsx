@@ -18,9 +18,12 @@ export default function MyProjects() {
           Here are some of my projects I have done.
         </p>
         <div className="flex flex-wrap items-center justify-center md:justify-start w-[90%] gap-[6vw] md:gap-[2vw]">
-          {projectsData.slice(0, 3).map((project) => (
-            <ProjectCard key={project.title} project={project} />
-          ))}
+          {[...projectsData]
+            .reverse()
+            .slice(0, 3)
+            .map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
         </div>
         <button
           onClick={() => navigate("/projects")}
