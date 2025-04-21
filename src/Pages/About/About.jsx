@@ -23,6 +23,7 @@ const LazyImage = lazy(() =>
 export default function About() {
   const [isLoading, setLoading] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [experienceText, setExperienceText] = useState("2.9 years");
   const navigate = useNavigate();
   // usePageTitle("About Us");
 
@@ -34,7 +35,55 @@ export default function About() {
     img.src = profile;
     img.onload = () => setImageLoaded(true);
 
-    return () => clearTimeout(timer);
+    // Calculate experience duration
+    const calculateExperience = () => {
+      // Set your experience start date here - assuming July 2022 based on "2.9 years"
+      const startDate = new Date(2022, 6, 1); // July 1, 2022 (0-indexed month)
+      const currentDate = new Date();
+
+      // Calculate total months of experience
+      const monthsDiff =
+        (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+        (currentDate.getMonth() - startDate.getMonth());
+
+      // Convert to years and months
+      const years = Math.floor(monthsDiff / 12);
+      const months = monthsDiff % 12;
+
+      // Format the experience text
+      if (years === 0) {
+        return `${months} months`;
+      } else if (months === 0) {
+        return `${years} year${years > 1 ? "s" : ""}`;
+      } else {
+        return `${years}.${months} years`;
+      }
+    };
+
+    // Set the initial experience text
+    setExperienceText(calculateExperience());
+
+    // Update at the beginning of each month
+    const now = new Date();
+    const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const timeUntilNextMonth = nextMonth.getTime() - now.getTime();
+
+    // Set timeout to update at the beginning of next month
+    const updateTimeout = setTimeout(() => {
+      setExperienceText(calculateExperience());
+
+      // Set interval to update monthly
+      const intervalId = setInterval(() => {
+        setExperienceText(calculateExperience());
+      }, 30 * 24 * 60 * 60 * 1000); // Roughly every month
+
+      return () => clearInterval(intervalId);
+    }, timeUntilNextMonth);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(updateTimeout);
+    };
   }, []);
 
   return (
@@ -109,14 +158,14 @@ export default function About() {
                 Hi, I&apos;m{" "}
                 <span className="text-blue-400 font-bold">Mohit Kuril</span>, a
                 passionate Web Application Developer from Hyderabad. Front-end
-                developer with 2.5 years of experience specializing in
-                responsive web design and user-friendly web applications.
-                Proficient in modern technologies like ReactJS, Redux,
-                JavaScript, and TailwindCSS, with a proven track record of
-                building e-commerce platforms and dynamic data management
-                systems. Skilled in optimizing websites for desktop and mobile
-                devices to enhance user engagement and collaborating with design
-                tools like Figma to create visually appealing interfaces.
+                developer Front-end developer with {experienceText} of
+                experience specializing in responsive web design and
+                user-friendly web applications. Proficient in modern
+                technologies like ReactJS, Redux, JavaScript, and Tailwind CSS,
+                with a proven track record of building e-commerce platforms and
+                dynamic data management systems. Skilled in optimizing websites
+                for desktop and mobile devices to enhance user engagement and
+                creating visually appealing interfaces.
               </p>
               <Button
                 onClick={() => navigate("/contact")}
